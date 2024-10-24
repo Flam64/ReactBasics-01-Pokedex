@@ -1,6 +1,8 @@
-export default function PokemonCard({ pokemon }) {
-	const { name, imgSrc } = pokemon;
-
+type pokemon = {
+	name: string;
+	imgSrc?: string;
+};
+export default function PokemonCard({ name, imgSrc }: pokemon) {
 	return (
 		<>
 			{imgSrc ? (
