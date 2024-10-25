@@ -14,27 +14,17 @@ export default function NavBar({
 	setPokemonIndex,
 	pokemonList,
 }: NavBarProps) {
-	const handleClickSuivant = () => {
-		setPokemonIndex(pokemonIndex + 1);
-	};
-
-	const handleClickPecedent = () => {
-		setPokemonIndex(pokemonIndex - 1);
-	};
-
 	return (
 		<>
-			{pokemonIndex > 0 && (
-				<button type="button" onClick={handleClickPecedent}>
-					Precedent
+			{pokemonList.map((avatar, index) => (
+				<button
+					type="button"
+					key={avatar.name}
+					onClick={() => setPokemonIndex(index)}
+				>
+					{avatar.name}
 				</button>
-			)}
-
-			{pokemonIndex < pokemonList.length - 1 && (
-				<button type="button" onClick={handleClickSuivant}>
-					Suivant
-				</button>
-			)}
+			))}
 		</>
 	);
 }
